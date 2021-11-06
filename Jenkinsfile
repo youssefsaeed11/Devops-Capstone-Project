@@ -50,7 +50,7 @@ pipeline {
           steps{
             script{
               try { 
-                withAWS(region:'us-east-1',credentials:'aws-user') {
+                withAWS(region:'eu-central-1',credentials:'aws-user') {
                 sh "aws eks describe-cluster --name Devop-Capstone-Project-Todoapp"
                   }
               }
@@ -72,7 +72,7 @@ pipeline {
          }
          steps{
            sh "echo 'Creating New Cluster This May Take up to 10 minutes ....'"
-           withAWS(region:'us-east-1',credentials:'aws-user') {
+           withAWS(region:'eu-central-1',credentials:'aws-user') {
             sh "eksctl create cluster -f k8s/cluster.yaml"
          }
          }
@@ -82,7 +82,7 @@ pipeline {
             branch 'master'
           }
           steps{
-            withAWS(region:'us-east-1',credentials:'aws-user') {
+            withAWS(region:'eu-central-1',credentials:'aws-user') {
             sh """#!/bin/bash
             export testvar=\$(aws eks update-kubeconfig --name Devop-Capstone-Project-Todoapp 2>&1| cut -d\' \' -f 3)
             kubectl config use-context \$testvar
