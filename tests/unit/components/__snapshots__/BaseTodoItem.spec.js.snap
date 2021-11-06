@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseTodoItem renders the BaseTodoItem 1`] = `
+<div class="BaseTodoItem">
+  <div class="BaseTodoItem__checkbox"><input type="checkbox" disabled="disabled"></div>
+  <div class="BaseTodoItem__content">
+    notDeleted
+  </div>
+  <div class="BaseTodoItem__actions"></div>
+</div>
+`;

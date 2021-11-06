@@ -1,0 +1,22 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: Devop-Capstone-Project-Todoapp
+  region: eu-central-1
+
+nodeGroups:
+  - name: devops-ng-1
+    instanceType: t3.medium
+    desiredCapacity: 1
+    volumeSize: 15
+    minSize: 1
+    maxSize: 5
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        externalDNS: true
+        albIngress: true
+        
+
+

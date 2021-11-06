@@ -1,0 +1,14 @@
+## Cypress image
+FROM cypress/base:14.10.1
+## jenkins user id and group arguments
+ARG user_id
+ARG group_id
+## Add jenkins user
+RUN groupadd -g ${group_id} jenkins
+RUN useradd jenkins -u ${user_id} -g jenkins --shell /bin/bash --create-home
+## Switch to jenkins user 
+USER jenkins
+## Expose port 8080
+EXPOSE 8080
+
+

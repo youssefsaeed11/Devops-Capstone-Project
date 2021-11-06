@@ -1,0 +1,16 @@
+## NodeJS Image
+FROM node:14.11.0 AS productionImage
+## Making a working directory for files
+WORKDIR /home/node/app/
+## Change node home permisions
+RUN chown node:node /home/node/*
+## Copy Project files to WORKDIR
+COPY --chown=node:node . /home/node/app/
+## Switch to user node 
+USER node
+## Install Dependencies
+RUN npm install
+## Expose port 8080
+EXPOSE 8080
+## RUN COMMAND 
+CMD [ "make", "run" ]
